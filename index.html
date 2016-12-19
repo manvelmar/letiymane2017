@@ -576,6 +576,39 @@
 								<!---->
 								<div class="countdown clearfix"     data-start="1498309200"     data-end="1498309300"     data-now="1479601200"     data-border-color="rgba(255, 0, 255, .8)"></div>
 								<!-- countdown end -->
+								 <div id="clock" style="height: 150px; width: 150px; background-color: blue"></div>
+  <!-- Your example will go here: -->
+  <div id="countdown" style="height: 150px; width: 150px; background-color: red"></div>
+  <script type="text/javascript">
+    // The example from the site:
+    var fiveSeconds = new Date().getTime() + 5000;
+    $('#clock').countdown(fiveSeconds, {elapse: true})
+      .on('update.countdown', function(event) {
+
+        var $this = $(this);
+        if (event.elapsed) {
+          $this.html(event.strftime('After end: <span>%H:%M:%S</span>'));
+        } else {
+          $this.html(event.strftime('To end: <span>%H:%M:%S</span>'));
+        }
+     });
+
+    // Your example:
+    $("#countdown").countdown("2016/12/22", function(event) {
+        if (event.elapsed) {
+          $(this).html(event.strftime(''
+     + '<div class="countdown-col-wrapper col-xs-3"><div class="countdown-col"><span class="countdown-time"> %-D </span> Days </div></div> '
+     + '<div class="countdown-col-wrapper col-xs-3"><div class="countdown-col"><span class="countdown-time"> %H </span> Hours </div></div>'
+     + '<div class="countdown-col-wrapper col-xs-3"><div class="countdown-col"><span class="countdown-time"> %M </span> Minutes </div></div>'
+     + '<div class="countdown-col-wrapper col-xs-3"><div class="countdown-col"><span class="countdown-time"> %S </span> Seconds </div></div>'));
+        } else {
+          $(this).html(event.strftime(''
+     + '<div class="countdown-col-wrapper col-xs-3"><div class="countdown-col"><span class="countdown-time"> %-D </span> Days </div></div> '
+     + '<div class="countdown-col-wrapper col-xs-3"><div class="countdown-col"><span class="countdown-time"> %H </span> Hours </div></div>'
+     + '<div class="countdown-col-wrapper col-xs-3"><div class="countdown-col"><span class="countdown-time"> %M </span> Minutes </div></div>'
+     + '<div class="countdown-col-wrapper col-xs-3"><div class="countdown-col"><span class="countdown-time"> %S </span> Seconds </div></div>'));
+      }});
+  </script>
 							</div>
 						</div>
 					</div>
