@@ -354,6 +354,34 @@
 						<div class="col-md-8 text-center col-md-offset-2 pv-40">
 							<div class="object-non-visible pv-40" data-animation-effect="fadeIn" data-effect-delay="100">
 								<h1 class="page-title text-center logo-font">Nos Casamos!</h1>
+								<script type="text/javascript">
+  // Turn on Bootstrap
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // 15 days from now!
+  function get15dayFromNow() {
+    return new Date(new Date().valueOf() + 15 * 24 * 60 * 60 * 1000);
+  }
+
+  var $clock = $('#clock');
+
+  $clock.countdown(get15dayFromNow(), function(event) {
+    $(this).html(event.strftime('%D days %H:%M:%S'));
+  });
+
+  $('#btn-reset').click(function() {
+    $clock.countdown(get15dayFromNow());
+  });
+
+  $('#btn-pause').click(function() {
+    $clock.countdown('pause');
+  });
+
+  $('#btn-resume').click(function() {
+    $clock.countdown('resume');
+  });
+
+</script>
 								<div class="separator"></div>
 								<h3 class="text-center"><em>24 de Junio de 2017, Madrid, España</em></h3>
 								<!-- countdown start -->
